@@ -1,0 +1,10 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "8800:8800"  # Відповідність зовнішнього та внутрішнього портів для backend
+    volumes:
+      - .:/backend
+      - /backend/node_modules
+    environment:
+      MONGO_URL: mongodb+srv://nastya03kochyrenkova:WKsG5okuQozw2huP@cluster0.dlqjf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
