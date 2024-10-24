@@ -20,6 +20,10 @@ const DoctorSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: false,
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false,
   }
 },{
   timestamps:true

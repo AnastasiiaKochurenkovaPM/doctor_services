@@ -1,0 +1,66 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; // Внутрішній відступ
+    background-color: #f5f5f5; // Той же фон, що і для сторінки входу
+    border-radius: 10px; // Закруглені кути
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Тінь
+    max-width: 1400px; // Максимальна ширина
+    margin: 20px auto; // Відступ знизу
+
+    h1 {
+        font-size: 32px; // Розмір заголовка
+        color: #309033; // Зелений колір заголовка
+        margin-bottom: 20px; // Відстань до наступних елементів
+    }
+
+    p {
+        font-size: 20px; // Розмір тексту
+        color: #333; // Темний колір тексту
+        margin: 25px 0; // Відстань між абзацами
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 20px; // Розмір шрифту для міток
+        margin: 10px 0; // Відстань між міткою та полем вводу
+    }
+
+    input {
+        width: 100%;
+        padding: 12px; // Внутрішній відступ для полів вводу
+        margin: 10px 0; // Відстань між полями
+        border: 1px solid #ccc; // Легка рамка
+        border-radius: 6px; // Закруглені кути
+        box-sizing: border-box; // Включити padding і border в загальний розмір
+        font-size: 18px;
+
+        &:focus {
+            border-color: #4CAF50; // Зелений колір при фокусі
+            outline: none; // Без рамки при фокусі
+        }
+    }
+
+    button {
+        background-color: #1c641e; // Зелений колір кнопки
+        color: white; // Білий колір тексту
+        font-size: 20px;
+        padding: 12px 16px; // Внутрішній відступ
+        margin: 10px 10px; // Відстань між кнопками
+        border: none; // Без рамки
+        border-radius: 6px; // Закруглені кути
+        cursor: pointer; // Курсор при наведенні
+
+        &:hover {
+            background-color: #45a049; // Темніший зелений при наведенні
+        }
+    }
+
+    .error-message {
+        color: red; // Червоний колір для повідомлень про помилки
+    }
+
+    .success-message {
+        color: green; // Зелений колір для успішних повідомлень
+    }
+}

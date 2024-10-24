@@ -1,0 +1,46 @@
+.sidebar {
+    background-color: #18571a; // Темно-зелений фон
+    padding: 20px; // Внутрішній відступ
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 2px; // Кути панелі
+    width: 250px; // Ширина бокової панелі
+    height: 100vh; // Висота на всю висоту вікна
+    position: fixed; // Фіксована позиція
+    top: 0; // З верху
+    left: 0; // Зліва
+  
+    ul {
+      list-style: none; // Без маркерів
+      padding: 0; // Без відступів
+      margin: 0; // Без відступів
+  
+      li {
+        margin: 25px 0; // Відстань між пунктами
+  
+        a {
+          color: white; // Білий колір для тексту посилання
+          text-decoration: none; // Без підкреслення
+          font-size: 21px; // Розмір тексту
+  
+          &:hover {
+            text-decoration: underline; // Підкреслення при наведенні
+          }
+        }
+  
+        button {
+          background-color: #247d27; // Зелений колір для кнопки
+          color: white; // Білий колір тексту
+          border: none; // Без рамки
+          border-radius: 6px; // Закруглені кути
+          padding: 10px 15px; // Внутрішній відступ
+          cursor: pointer; // Курсор при наведенні
+          font-size: 16px; // Розмір тексту кнопки
+  
+          &:hover {
+            background-color: #45a049; // Темніший зелений при наведенні
+          }
+        }
+      }
+    }
+  }
+  

@@ -2,7 +2,7 @@ const Doctor = require("../models/doctor.model.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const createError = require("../utils/createError.js");
-const { sendBusinessMessage } = require('../utils/messageService');
+// const { sendBusinessMessage } = require('../utils/messageService');
 
 const register = async (req, res, next) => {
     try {
@@ -13,7 +13,8 @@ const register = async (req, res, next) => {
         });
         
         await newDoctor.save();
-        await sendBusinessMessage(`New doctor registered: ${newDoctor.name}`);
+
+        //await sendBusinessMessage(JSON.stringify(newDoctor));
         res.status(201).send("User has been created");
     } catch (error) {
         next(error);
@@ -39,9 +40,8 @@ const login = async (req, res, next) => {
             maxAge: 3600000, // Час життя (1 година)
         })
         .status(200)
-        .send(info);
-
-        await sendBusinessMessage(`Doctor logged in: ${doctor.name}`);
+        .send({ ...info, doctorId: doctor._id })
+        // await sendBusinessMessage(JSON.stringify({ action: 'login', doctorId: doctor._id }));
 
     } catch (error) {
         next(error);
@@ -55,7 +55,7 @@ const logout = async (req, res) => {
         secure: true,
     })
 
-    await sendBusinessMessage(`Doctor logged out: ${req.user.name}`)
+    // await sendBusinessMessage(`Doctor logged out: ${req.user.name}`)
     .status(200)
     .send("User has been logged out.");
 };

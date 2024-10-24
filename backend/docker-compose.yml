@@ -1,10 +1,36 @@
+# services:
+#   backend:
+#     build: .
+#     ports:
+#       - "8800:8800"  # Відповідність зовнішнього та внутрішнього портів для backend
+#     volumes:
+#       - .:/backend
+#       - /backend/node_modules
+#     environment:
+#       MONGO_URL: mongodb+srv://nastya03kochyrenkova:WKsG5okuQozw2huP@cluster0.dlqjf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+version: '3.8'
+
 services:
   backend:
-    build: .
+    build:
+      context: .
     ports:
-      - "8800:8800"  # Відповідність зовнішнього та внутрішнього портів для backend
-    volumes:
-      - .:/backend
-      - /backend/node_modules
+      - "8800:8800"
+    depends_on:
+      - rabbitmq
     environment:
-      MONGO_URL: mongodb+srv://nastya03kochyrenkova:WKsG5okuQozw2huP@cluster0.dlqjf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - NODE_ENV=production
+      - MONGO_URL=mongodb+srv://nastya03kochyrenkova:WKsG5okuQozw2huP@cluster0.dlqjf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"      # AMQP port
+      - "15672:15672"    # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: quest     # Задайте ім'я користувача RabbitMQ
+      RABBITMQ_DEFAULT_PASS: quest      # Задайте пароль RabbitMQ
+
+    volumes:
+      - ./config/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf  # Додаємо конфігураційний файл

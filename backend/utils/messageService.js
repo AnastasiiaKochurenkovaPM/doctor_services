@@ -1,18 +1,30 @@
-const { sendMessage, consumeMessages } = require('../config/rabbitmq');
+// const {connectRabbitMQ} = require('../config/rabbitmqm');
+// let channel;
 
-const QUEUE_NAME = 'business_queue';
+// // Підключитися до RabbitMQ
+// connectRabbitMQ().then((ch) => {
+//   channel = ch; // Зберігайте канал для подальшого використання
+// });
 
-// Функція для надсилання повідомлень
-async function sendBusinessMessage(message) {
-  await sendMessage(QUEUE_NAME, message);
-}
+// // Функція для відправки повідомлень
+// async function sendBusinessMessage(message) {
+//   if (!channel) {
+//     console.error('Channel is not available. Please connect to RabbitMQ first.');
+//     return;
+//   }
+//   await sendMessage(QUEUE_NAME, message);
+// }
 
-// Функція для прослуховування черги
-function listenForBusinessMessages(callback) {
-  consumeMessages(QUEUE_NAME, callback);
-}
+// // Функція для прослуховування черги
+// function listenForBusinessMessages(callback) {
+//   if (!channel) {
+//     console.error('Channel is not available. Please connect to RabbitMQ first.');
+//     return;
+//   }
+//   consumeMessages(QUEUE_NAME, callback);
+// }
 
-module.exports = {
-  sendBusinessMessage,
-  listenForBusinessMessages,
-};
+// module.exports = {
+//   sendBusinessMessage,
+//   listenForBusinessMessages,
+// };

@@ -1,0 +1,54 @@
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height */
+  }
+  
+  .image-section {
+    background-image: url('https://www.sermo.com/wp-content/uploads/2022/05/doctor-patient-img-1-copy-3.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 66.67vh; /* 2/3 of the viewport height */
+  }
+  
+  .content-section {
+    background-color: #e0f7e0; /* Light green background */
+    flex: 1; /* Take up the remaining space */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text */
+  }
+  
+  h1 {
+    color: #309033;
+    margin-bottom: 30px;
+  }
+  
+  p {
+    color: #309033;
+    margin-bottom: 30px;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .action-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1c641e; /* Green button background */
+    color: white; /* Button text color */
+    font-size: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .action-button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
+  

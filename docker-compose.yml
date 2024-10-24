@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: ./frontend 
+      dockerfile: Dockerfile  
+    ports:
+      - "5173:80" 
+
+  backend:
+    build:
+      context: ./backend 
+      dockerfile: Dockerfile
+    ports:
+      - "8800:8800"  
+    environment:
+      - MONGO_URL=mongodb+srv://nastya03kochyrenkova:WKsG5okuQozw2huP@cluster0.dlqjf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - RABBITMQ_URL=${RABBITMQ_URL}  
